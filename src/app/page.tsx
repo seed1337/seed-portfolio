@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import "./globals.css";
 import dynamic from "next/dynamic";
-import { LazyLoadComponent } from "react-lazyload";
 import {
   FaDiscord,
   FaSpotify,
@@ -11,6 +10,7 @@ import {
   FaTwitter,
   FaGithubAlt,
 } from "react-icons/fa";
+import { BsFillPlayCircleFill, BsFillPauseCircleFill} from "react-icons/bs";
 import EnterScreen from "../../components/EnterScreen";
 
 const DynamicSocialIcons = dynamic(
@@ -44,17 +44,21 @@ const BackgroundAudio = () => {
   const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const volumeLevel = parseFloat(event.target.value);
     setVolume(volumeLevel);
+  
+    if (audioRef.current) {
+      audioRef.current.volume = volumeLevel;
+    }
   };
 
   return (
     <div className="background-audio">
-      <audio ref={audioRef} autoPlay loop volume={volume as any}>
+      <audio ref={audioRef} autoPlay loop>
         <source src="/music.mp3" type="audio/mpeg" />
       </audio>
+      <div className="enter-button" onClick={handlePlayPause}>
+          {isPlaying ? <BsFillPauseCircleFill/> : <BsFillPlayCircleFill/>}
+        </div>
       <div className="audio-controls">
-        <button className="enter-button" onClick={handlePlayPause}>
-          {isPlaying ? "Pause" : "Play"}
-        </button>
         <input
           type="range"
           min="0"

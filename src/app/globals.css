@@ -1,12 +1,14 @@
 body {
-  background-image: url("assets/background.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   margin: 0;
+}
+
+.background-video {
+  position: relative;
 }
 
 .box {
@@ -23,14 +25,33 @@ body {
   border-radius: 20px;
   overflow: hidden;
   position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 50px;
+  background-color: transparent; /* Add this line */
+  transition: opacity 0.3s linear;
+  opacity: 0;
+}
+
+.box.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s linear; /* Change opacity to 1 to trigger the fade-in effect */
+}
+
+.box-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .box img {
   width: 250px;
   height: 250px;
-  margin-bottom: 275px;
   border-radius: 50%;
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: -160px;
 }
 
 .box h2 {
@@ -69,19 +90,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(white 5%, transparent 5%);
-  background-size: 20px 20px;
   pointer-events: none;
-  animation: particles 10s linear infinite;
-}
-
-@keyframes particles {
-  0% {
-      background-position: 0 0;
- }
-  100% {
-      background-position: 1000px 1000px;
- }
 }
 
 .social-icons p {
@@ -89,16 +98,18 @@ body {
   align-items: center;
   margin-right: 10px;
   font-size: 32px;
-  transition: background-color 0.3s ease;
+  transition: scale 0.2s ease-in-out;
 }
 
 .social-icons p:hover {
-  background-color: rgba(255, 255, 255, 0.041);
   color: #6c2fb3;
+  scale: 1.5;
+  transition: scale 0.2s ease-in-out;
 }
 
 .social-icons p:hover svg {
   color: #431ab6;
+  transition: color 0.2s ease-in-out;
 }
 
 .social-icons p:last-child {
@@ -111,11 +122,15 @@ body {
   padding: 2px;
   margin-right: 5px;
   color: #210a5f;
+  transition: color 0.2s ease-in-out;
 }
 
 .social-icons p:hover {
-  background-color: rgba(255, 255, 255, 0.1);
   cursor: pointer;
+}
+
+.background-video {
+  position: relative;
 }
 
 .content {
@@ -125,6 +140,136 @@ body {
   justify-content: center;
   text-align: center;
   color: white;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 600px;
+  border-width: 0px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom right, #6c2fb3, #cd52d8) 1;
+  box-shadow: 0 0 0 2px #f0c8f0, 0 0 0 4px #bfbff0;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 50px;
+  background-color: transparent; /* Add this line */
+  transition: opacity 0.3s linear;
+  opacity: 0;
+}
+
+.box.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s linear; /* Change opacity to 1 to trigger the fade-in effect */
+}
+
+.box-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: auto;
+  margin-bottom: 250px;
+}
+
+.box h2 {
+  font-size: 45px;
+  font-family: monospace;
+  font-weight: 200;
+  color: whitesmoke;
+  margin: auto;
+  margin-top: 35px;
+  white-space: nowrap;
+  position: absolute;
+}
+
+.box p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  padding: 0px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+}
+
+.social-icons::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.social-icons p {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 32px;
+  transition: scale 0.2s ease-in-out;
+}
+
+.social-icons p:hover {
+  color: #6c2fb3;
+  scale: 1.5;
+  transition: scale 0.2s ease-in-out;
+}
+
+.social-icons p:hover svg {
+  color: #431ab6;
+  transition: color 0.2s ease-in-out;
+}
+
+.social-icons p:last-child {
+  margin-right: 0;
+}
+
+.social-icons svg {
+  width: 32px;
+  height: 32px;
+  padding: 2px;
+  margin-right: 5px;
+  color: #210a5f;
+  transition: color 0.2s ease-in-out;
+}
+
+.social-icons p:hover {
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: transparent; /* Add this line */
 }
 
 .content h1 {
@@ -155,7 +300,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 .enter-button {
@@ -163,11 +309,11 @@ body {
   align-items: center;
   justify-content: center;
   position: absolute;
-  margin-top: 420px;
+  margin-top: 195px;
   left: 265px;
-  color: rgb(7, 7, 7);
+  color: rgb(245, 210, 210);
   border: none;
-  padding: .5rem .5rem;
+  padding: 0.5rem 0.5rem;
   font-family: "monospace";
   font-size: 50px;
   border-radius: 0.3rem;
@@ -175,42 +321,64 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.audio-controls input[type='range'] {
+.audio-controls input[type="range"] {
   -webkit-appearance: none;
-  width: 100%;
-  height: 100%;
+  width: 250px;
+  height: 3%;
   padding: 3px 2px;
-  background: #ccc;
+  background: rgb(245, 210, 210);
   border-radius: 10px;
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-  margin-top: 300px;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  position: absolute;
+  margin-top: 500px;
+  margin-right: 250px;
 }
 
-.audio-controls input[type='range']::-webkit-slider-thumb {
+.audio-controls input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 15px;
-  height: 15px;
-  background: #6c2fb3;
+  background: rgb(245, 210, 210);
   border-radius: 50%;
   cursor: pointer;
+  transition: 0.2s linear;
+  width: 35px;
+  height: 35px;
 }
 
-.audio-controls input[type='range']::-moz-range-thumb {
-  width:15px;
-  height:15px;
-  background:#6c2fb3;
-  border-radius:50%;
-  cursor:pointer;
+.audio-controls input[type="range"]::-moz-range-thumb {
+  width: 35px;
+  height: 35px;
+  background: rgb(255, 201, 201);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s linear;
 }
 
-.audio-controls input[type='range']:focus {
+.audio-controls input[type="range"]:focus {
   outline: none;
 }
 
-.audio-controls input[type='range']:hover {
+.audio-controls input[type="range"]:hover {
   opacity: 1;
+}
+
+.vid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }

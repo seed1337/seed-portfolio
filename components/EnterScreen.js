@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { useRouter } from "next/navigation";
 
@@ -12,7 +13,7 @@ const EnterScreen = ({ onEnterClick }) => {
   return (
     <div className="enter-screen">
       <div className="content">
-        <h1>Seed's portfolio :D</h1>
+        <h1>Seed&apos;s portfolio :D</h1>
         <button onClick={handleEnterClick}>Enter</button>
       </div>
     </div>

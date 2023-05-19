@@ -11,7 +11,6 @@ import {
 const icons = [
   {
     icon: <FaTwitter />,
-    label: "Twitter",
     link: "https://twitter.com/seed_1337",
   },
   {
@@ -22,7 +21,7 @@ const icons = [
   {
     icon: <FaDiscord />,
     label: "Discord",
-    link: "https://discord.com/",
+    link: "https://discordlookup.com/user/1075992750207541398",
   },
   {
     icon: <FaSpotify />,

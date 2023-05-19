@@ -5,7 +5,7 @@ import EnterScreen from "../../components/EnterScreen";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import "./globals.css";
-import ParticlesComponent from "../../components/ParticlesComponent";
+import ParticleBackground from '../../components/Particle'
 
 const DynamicSocialIcons = dynamic(
   () => import("../../components/SocialIcons"),
@@ -65,7 +65,7 @@ const BackgroundMusic = () => {
   );
 };
 
-export default function Home() {
+export default function Homepage() {
   const [showEnterScreen, setEnterScreen] = useState(true);
   const [shouldFadeIn, setShouldFadeIn] = useState(false); // Change the initial value to false
 
@@ -79,27 +79,38 @@ export default function Home() {
     setShouldFadeIn(true);
   }, []); // Add useEffect to trigger the fade-in effect on initial render
 
+  const handleGoBack = () => {
+    setEnterScreen(true); // Show the enter screen again
+  };
+
   return (
     <div>
+     <ParticleBackground />
       {showEnterScreen ? (
         <EnterScreen onEnterClick={handleEnterClick} />
       ) : (
-        <div className={`box ${shouldFadeIn ? "fade-in" : ""}`}>
-          <div className="box-content">
-            <ParticlesComponent />
-            <div className="image-container">
-              <Image
-                width={900}
-                height={900}
-                src="/avatar.jpg"
-                alt="Picture of the author"
-              />
+        <>
+          <div className={`box ${shouldFadeIn ? "fade-in" : ""}`}>
+            <div className="box-content">
+              <div className="image-container">
+                <Image
+                  width={900}
+                  height={900}
+                  src="/avatar.jpg"
+                  alt="Picture of the author"
+                />
+              </div>
+              <h2>seed</h2>
+              <DynamicSocialIcons />
+              <BackgroundMusic />
             </div>
-            <h2>seed</h2>
-            <DynamicSocialIcons />
-            <BackgroundMusic />
+            {!showEnterScreen && (
+              <div className="back-button" onClick={handleGoBack}>
+                Back
+              </div>
+            )}
           </div>
-        </div>
+        </>
       )}
     </div>
   );

@@ -15,6 +15,10 @@ const Projects: React.FC = () => {
           fetch("https://api.github.com/repos/seed1337/Python-Bluescreen"),
           fetch("https://api.github.com/repos/seed1337/Rakia-Moderation"),
           fetch("https://api.github.com/repos/seed1337/seed-portfolio"),
+          fetch("https://api.github.com/repos/seed1337/sshbrute"),
+          fetch("https://api.github.com/repos/seed1337/bypass-site"),
+          fetch("https://api.github.com/repos/seed1337/XSS-SQL-TOOL-BASE"),
+          
         ]);
 
         const data = await Promise.all(response.map((res) => res.json()));
